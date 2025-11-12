@@ -8,122 +8,159 @@
   <style>
     body {
       background-color: #0d0b14;
-      color: #e5e7eb; /* text-gray-100 */
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+      color: #e5e7eb;
+      font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
         "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
         "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       min-height: 100vh;
+      scroll-behavior: smooth;
+    }
+    a, button {
+      transition: all 0.3s ease;
+    }
+    a:hover, button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 15px rgba(220, 38, 38, 0.4);
+    }
+    header {
+      backdrop-filter: blur(10px);
+      background-color: rgba(26, 21, 37, 0.85);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    ul.checklist li::before {
+      content: "✔";
+      color: #ef4444; /* red-500 */
+      margin-right: 0.5rem;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
 
   <!-- Header -->
-  <header class="bg-[#1a1525] shadow-sm">
+  <header>
     <div class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <div class="w-12 h-12 rounded-xl bg-red-600 flex items-center justify-center text-white font-bold">RXH</div>
+      <div class="flex items-center gap-4">
+        <div class="w-14 h-14 rounded-2xl bg-red-600 flex items-center justify-center text-white font-extrabold text-xl shadow-lg">RXH</div>
         <div>
-          <h1 class="text-lg font-semibold text-white">RXH.fi</h1>
-          <p class="text-xs text-gray-400">IT-konsultointi • Projektijohto • Nettisivut • Sovellukset</p>
+          <h1 class="text-xl font-extrabold text-white drop-shadow-md">RXH.fi</h1>
+          <p class="text-xs text-gray-400 tracking-wide">IT-konsultointi • Projektijohto • Nettisivut • Sovellukset</p>
         </div>
       </div>
-      <nav class="hidden md:flex gap-6 text-sm">
-        <a href="#services" class="hover:text-red-400">Palvelut</a>
-        <a href="#about" class="hover:text-red-400">Tietoa</a>
-        <a href="#contact" class="hover:text-red-400">Ota yhteyttä</a>
+      <nav class="hidden md:flex gap-8 text-sm font-semibold uppercase tracking-wide text-gray-300">
+        <a href="#services" class="hover:text-red-500">Palvelut</a>
+        <a href="#about" class="hover:text-red-500">Tietoa</a>
+        <a href="#contact" class="hover:text-red-500">Ota yhteyttä</a>
       </nav>
-      <a href="#contact" class="ml-4 inline-block px-4 py-2 bg-red-600 text-white rounded-md text-sm">Pyydä tarjous</a>
+      <a href="#contact" class="ml-6 inline-block px-6 py-3 bg-red-600 text-white rounded-full font-semibold shadow-lg hover:bg-red-700">
+        Pyydä tarjous
+      </a>
     </div>
   </header>
 
   <!-- Hero -->
-  <section class="max-w-6xl mx-auto px-6 py-16 grid gap-8 md:grid-cols-2 items-center">
+  <section class="max-w-6xl mx-auto px-6 py-20 md:py-24 grid gap-12 md:grid-cols-2 items-center">
     <div>
-      <h2 class="text-3xl md:text-4xl font-extrabold leading-tight text-white">RXH — Luotettavaa IT-konsultointia ja projektijohtoa</h2>
-      <p class="mt-4 text-gray-300">Autamme yrityksiä ja tiimejä menestymään teknologia-projekteissa — alusta loppuun. Projektipäällikön osaaminen, projektin johdon konsultointi, modernit nettisivuratkaisut ja web-sovellukset.</p>
+      <h2 class="text-4xl md:text-5xl font-extrabold leading-tight text-white drop-shadow-lg">
+        RXH — Luotettavaa IT-konsultointia ja projektijohtoa
+      </h2>
+      <p class="mt-6 text-lg text-gray-300 leading-relaxed max-w-xl">
+        Autamme yrityksiä ja tiimejä menestymään teknologia-projekteissa — alusta loppuun.
+        Projektipäällikön osaaminen, projektin johdon konsultointi, modernit nettisivuratkaisut ja web-sovellukset.
+      </p>
 
-      <div class="mt-6 flex gap-3">
-        <a href="#contact" class="px-5 py-3 bg-red-600 text-white rounded-md shadow">Ota yhteyttä</a>
-        <a href="#services" class="px-5 py-3 border border-red-600 text-red-300 rounded-md">Palvelut</a>
+      <div class="mt-10 flex gap-5">
+        <a href="#contact" class="px-7 py-4 bg-red-600 text-white rounded-full font-semibold shadow-lg hover:bg-red-700 focus:ring-4 focus:ring-red-500 focus:ring-opacity-50">
+          Ota yhteyttä
+        </a>
+        <a href="#services" class="px-7 py-4 border-2 border-red-600 text-red-500 rounded-full font-semibold hover:bg-red-600 hover:text-white transition-colors">
+          Palvelut
+        </a>
       </div>
 
-      <ul class="mt-6 text-sm text-gray-400 space-y-2">
-        <li>✔ Kokemus projektinhallinnasta ketterästi (Scrum, Kanban) ja perinteisemmillä menetelmillä</li>
-        <li>✔ Räätälöidyt web-ratkaisut</li>
-        <li>✔ Selkeä viestintä, riskienhallinta ja toimitusvarmuus</li>
+      <ul class="mt-10 text-base text-gray-400 space-y-3 checklist max-w-md">
+        <li>Kokemus projektinhallinnasta ketterästi (Scrum, Kanban) ja perinteisemmillä menetelmillä</li>
+        <li>Räätälöidyt web-ratkaisut</li>
+        <li>Selkeä viestintä, riskienhallinta ja toimitusvarmuus</li>
       </ul>
+    </div>
+    <div class="hidden md:block">
+      <img src="https://images.unsplash.com/photo-1508385082359-f214972bf96b?auto=format&fit=crop&w=600&q=80" alt="IT consulting" class="rounded-xl shadow-lg" />
     </div>
   </section>
 
   <!-- Services -->
-  <section id="services" class="max-w-6xl mx-auto px-6 py-12">
-    <h3 class="text-2xl font-bold text-red-400">Palvelumme</h3>
-    <p class="text-gray-300 mt-2">Tarjoamme laajan valikoiman IT- ja projektipalveluita — skaalautuvasti ja käytännönläheisesti.</p>
+  <section id="services" class="max-w-6xl mx-auto px-6 py-14">
+    <h3 class="text-3xl font-bold text-red-500 mb-4 drop-shadow-md">Palvelumme</h3>
+    <p class="text-gray-300 text-lg max-w-3xl">
+      Tarjoamme laajan valikoiman IT- ja projektipalveluita — skaalautuvasti ja käytännönläheisesti.
+    </p>
 
-    <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      <article class="bg-[#1a1525] p-5 rounded-xl shadow-sm">
-        <h4 class="font-semibold text-red-400">IT-konsultointi</h4>
-        <p class="text-sm text-gray-300 mt-2">Arkkitehtuuri- ja teknologia-analyysit sekä kustannustehokkaat ratkaisut yrityksesi tarpeisiin.</p>
+    <div class="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <article class="bg-[#1a1525] p-7 rounded-2xl shadow-xl hover:shadow-red-600 transition-shadow duration-300">
+        <h4 class="font-semibold text-red-500 text-xl mb-2">IT-konsultointi</h4>
+        <p class="text-gray-300 text-sm leading-relaxed">Arkkitehtuuri- ja teknologia-analyysit sekä kustannustehokkaat ratkaisut yrityksesi tarpeisiin.</p>
       </article>
-      <article class="bg-[#1a1525] p-5 rounded-xl shadow-sm">
-        <h4 class="font-semibold text-red-400">Projektipäällikön osaaminen</h4>
-        <p class="text-sm text-gray-300 mt-2">Kokenut projektipäällikkö joka osaa johtaa erityyppisiä projekteja: resursointi, aikataulutus, budjetointi ja sidosryhmäviestintä.</p>
+      <article class="bg-[#1a1525] p-7 rounded-2xl shadow-xl hover:shadow-red-600 transition-shadow duration-300">
+        <h4 class="font-semibold text-red-500 text-xl mb-2">Projektipäällikön osaaminen</h4>
+        <p class="text-gray-300 text-sm leading-relaxed">Kokenut projektipäällikkö joka osaa johtaa erityyppisiä projekteja: resursointi, aikataulutus, budjetointi ja sidosryhmäviestintä.</p>
       </article>
-      <article class="bg-[#1a1525] p-5 rounded-xl shadow-sm">
-        <h4 class="font-semibold text-red-400">Projektin johdon konsultointi</h4>
-        <p class="text-sm text-gray-300 mt-2">Tarjoamme kokonaisvaltaista projektin johdon konsultointia: prosessien kehitystä, johtamismallien arviointia, projektien toimitusvarmuuden parantamista ja muutosjohtamista.</p>
+      <article class="bg-[#1a1525] p-7 rounded-2xl shadow-xl hover:shadow-red-600 transition-shadow duration-300">
+        <h4 class="font-semibold text-red-500 text-xl mb-2">Projektin johdon konsultointi</h4>
+        <p class="text-gray-300 text-sm leading-relaxed">Tarjoamme kokonaisvaltaista projektin johdon konsultointia: prosessien kehitystä, johtamismallien arviointia, projektien toimitusvarmuuden parantamista ja muutosjohtamista.</p>
       </article>
-      <article class="bg-[#1a1525] p-5 rounded-xl shadow-sm">
-        <h4 class="font-semibold text-red-400">Nettisivujen tekeminen</h4>
-        <p class="text-sm text-gray-300 mt-2">Modernit, responsiiviset ja saavutettavat sivut (React, Next.js, tai staattinen HTML). Sisältöstrategia, hakukoneoptimointi (SEO) ja ylläpito.</p>
+      <article class="bg-[#1a1525] p-7 rounded-2xl shadow-xl hover:shadow-red-600 transition-shadow duration-300">
+        <h4 class="font-semibold text-red-500 text-xl mb-2">Nettisivujen tekeminen</h4>
+        <p class="text-gray-300 text-sm leading-relaxed">Modernit, responsiiviset ja saavutettavat sivut (React, Next.js, tai staattinen HTML). Sisältöstrategia, hakukoneoptimointi (SEO) ja ylläpito.</p>
       </article>
-      <article class="bg-[#1a1525] p-5 rounded-xl shadow-sm">
-        <h4 class="font-semibold text-red-400">Sovelluskehitys</h4>
-        <p class="text-sm text-gray-300 mt-2">Full-stack kehitys: frontend, backend ja API-integraatiot. Lisäksi reaaliaikainen raportointi, datan visualisointi sekä tekoälypohjaiset ratkaisut kuten AI-sovellukset ja chatbotit.</p>
+      <article class="bg-[#1a1525] p-7 rounded-2xl shadow-xl hover:shadow-red-600 transition-shadow duration-300">
+        <h4 class="font-semibold text-red-500 text-xl mb-2">Sovelluskehitys</h4>
+        <p class="text-gray-300 text-sm leading-relaxed">Full-stack kehitys: frontend, backend ja API-integraatiot. Lisäksi reaaliaikainen raportointi, datan visualisointi sekä tekoälypohjaiset ratkaisut kuten AI-sovellukset ja chatbotit.</p>
       </article>
-      <article class="bg-[#1a1525] p-5 rounded-xl shadow-sm">
-        <h4 class="font-semibold text-red-400">Koulutus ja tuki</h4>
-        <p class="text-sm text-gray-300 mt-2">Tarjoamme koulutusta työkaluihin, prosesseihin ja projektinhallinnan parhaisiin käytäntöihin sekä jatkuvan tuen projektin elinkaaren ajaksi.</p>
+      <article class="bg-[#1a1525] p-7 rounded-2xl shadow-xl hover:shadow-red-600 transition-shadow duration-300">
+        <h4 class="font-semibold text-red-500 text-xl mb-2">Koulutus ja tuki</h4>
+        <p class="text-gray-300 text-sm leading-relaxed">Tarjoamme koulutusta työkaluihin, prosesseihin ja projektinhallinnan parhaisiin käytäntöihin sekä jatkuvan tuen projektin elinkaaren ajaksi.</p>
       </article>
     </div>
   </section>
 
   <!-- About -->
-  <section id="about" class="max-w-6xl mx-auto px-6 py-12">
-    <div class="bg-[#1a1525] rounded-xl p-6 shadow-sm">
-      <h3 class="text-2xl font-bold text-red-400">Tietoa RXH:sta</h3>
-      <p class="text-gray-300 mt-3">RXH tarjoaa käytännönläheistä IT-asiantuntemusta ja projektinjohtopalveluja suomalaisille yrityksille. Painopisteenä on toimitusvarmuus, selkeä kommunikointi ja yrityksen tavoitteiden ymmärtäminen.</p>
+  <section id="about" class="max-w-6xl mx-auto px-6 py-16">
+    <div class="bg-[#1a1525] rounded-2xl p-8 shadow-xl">
+      <h3 class="text-3xl font-bold text-red-500 mb-4 drop-shadow-md">Tietoa RXH:sta</h3>
+      <p class="text-gray-300 leading-relaxed max-w-3xl">RXH tarjoaa käytännönläheistä IT-asiantuntemusta ja projektinjohtopalveluja suomalaisille yrityksille. Painopisteenä on toimitusvarmuus, selkeä kommunikointi ja yrityksen tavoitteiden ymmärtäminen.</p>
     </div>
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="max-w-6xl mx-auto px-6 py-12">
-    <div class="bg-gradient-to-r from-red-800 to-red-600 text-white rounded-xl p-6 md:p-10">
+  <section id="contact" class="max-w-6xl mx-auto px-6 py-16">
+    <div class="bg-gradient-to-r from-red-800 to-red-600 text-white rounded-2xl p-8 shadow-xl md:p-12">
       <div>
-        <h3 class="text-2xl font-bold">Ota yhteyttä</h3>
-        <p class="mt-2 text-red-100 text-sm">Tavoitat meidät sähköpostitse tai puhelimitse.</p>
+        <h3 class="text-3xl font-bold mb-4 drop-shadow-sm">Ota yhteyttä</h3>
+        <p class="text-red-100 text-lg max-w-xl leading-relaxed mb-6">Tavoitat meidät sähköpostitse tai puhelimitse.</p>
 
-        <div class="mt-4 text-sm">
-          <p>📧 <a href="mailto:rikurixuh@gmail.com" class="underline text-red-100 hover:text-white">rikurixuh@gmail.com</a></p>
-          <p>📞 <a href="tel:" class="underline text-red-100 hover:text-white"></a></p>
+        <div class="mt-4 text-lg space-y-2">
+          <p>📧 <a href="mailto:rikurixuh@gmail.com" class="underline hover:text-white">rikurixuh@gmail.com</a></p>
+          <p>📞 <a href="tel:" class="underline hover:text-white"></a></p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-[#1a1525] border-t border-gray-800 mt-12">
+  <footer class="bg-[#1a1525] border-t border-gray-800 mt-16">
     <div class="max-w-6xl mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between">
       <div class="text-sm text-gray-400">© <span id="year"></span> RXH.fi — Kaikki oikeudet pidätetään</div>
-      <div class="text-sm text-gray-400 mt-2 md:mt-0">Domain: <span class="font-medium text-red-400">RXH.fi</span></div>
+      <div class="text-sm text-gray-400 mt-3 md:mt-0">Domain: <span class="font-semibold text-red-500">RXH.fi</span></div>
     </div>
   </footer>
 
 <script>
-  // Aseta automaattisesti nykyinen vuosi footerille
+  // Aseta nykyinen vuosi footerille
   document.getElementById('year').textContent = new Date().getFullYear();
 </script>
 
